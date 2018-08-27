@@ -1,0 +1,132 @@
+<div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+        <table style="width:95%; border:5px solid black;" class="table">
+            <tr style="width:100%;height:10%" align="center">
+                <td style="width:45%">
+                    <img class="logo" src="../../../assets/images/hex-hcci_logo-cmyk.png">
+                </td>
+                <td style="width:45%">
+                    <img class="logo" style="width:75%" src="../../../assets/images/intergraph.png">
+                </td>
+            </tr>
+            <tr style="width:100%;height:5%" align="center">
+                <td colspan="2" align="center">
+                    <marquee>
+                        <h1 style="color:black;font-size: 50px" align="center">G/T Bot</h1>
+                    </marquee>
+                </td>
+            </tr>
+            <tr style="height:83%;">
+                <td colspan="2" align="center">
+                    <table>
+                        <tr>
+                            <div style="height:380px; overflow-y: auto">
+                                <ng-container *ngFor="let message of messages | async">
+                                    <div class="message" [ngClass]="{ 'from': message.sentBy === 'bot',
+                                    'to':   message.sentBy === 'user' }">
+                                        <div [ngClass]="{ 'card': message.sentBy === 'bot',
+                                    'to':   message.sentBy === 'user' }">
+                                            <div [ngClass]="{ 'card-header': message.sentBy === 'bot',
+                                            'to':   message.sentBy === 'user'}">
+                                                <div [ngClass]="{ 'fromcontent': message.sentBy === 'bot',
+                                     'to':   message.sentBy === 'user' }">
+                                                    {{ message.content }}
+                                                </div>
+                                            </div>
+                                            <div [ngClass]="{ 'card-body': message.sentBy === 'bot',
+                                            'to':   message.sentBy === 'user'}">
+                                                <div class="message videomessage" [ngClass]="{'visibilityClass':  message.showvideo==='true',
+                                                    'hiddenClass':message.showvideo==='false'
+                                                     }">
+
+                                                    <video width="100%" height="100%" controls>
+                                                        <source src="{{message.videoUrl}}" type="video/mp4">
+                                                    </video>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <br>
+                                        <div class="message" [ngClass]="{'visibilityClass':  message.showimage=='true',
+    'hiddenClass':message.showimage=='false'
+     }">
+                                            <img [ngClass]="{'visibilityClass':  message.showimage==='true',
+        'hiddenClass':message.showimage==='false'
+         }" src="{{message.imageUrl}}" height="100%" width="100%">
+                                        </div>
+
+                                        <div class="message pdfmessage" [ngClass]="{'visibilityClass':  message.showpdf=='true',
+    'hiddenClass':message.showpdf=='false'
+     }">
+                                            <table>
+                                                <tr style="border:none">
+                                                    <div class="card">
+
+                                                        <div class="card-header">
+                                                            <h5 style="color:black">{{message.pdfname}}</h5>
+                                                        </div>
+                                                        <td>
+                                                            <div class="class-body">
+                                                                <a href={{message.pdfpath}} target="page">
+                                                                    <img style="width: 30%" src="../../../assets/images/pdf2.png">
+                                                                </a>
+                                                            </div>
+                                                        </td>
+                                                    </div>
+                                                </tr>
+                                            </table>
+                                        </div>
+
+                                        <div class="message wordmessage" [ngClass]="{'visibilityClass':  message.showword=='true',
+        'hiddenClass':message.showword=='false'
+         }">
+                                            <table>
+                                                <tr style="border:none">
+                                                    <div class="card">
+
+                                                        <div class="card-header">
+                                                            <h5 style="color:black">{{message.wordname}}</h5>
+                                                        </div>
+
+                                                        <td>
+                                                            <div class="class-body">
+                                                                <a href={{message.wordpath}} target="page" download>
+                                                                    <img style="width: 30%" src="../../../assets/images/word.png">
+                                                                </a>
+                                                            </div>
+                                                        </td>
+                                                    </div>
+                                                </tr>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </tr>
+                        <tr style="height:4%;">
+
+                            <table>
+                                <tr>
+                                    <td>
+
+                                        <textarea rows="3" cols="2"  style="height:300%;width:670px ;float: right" [(ngModel)]="formValue" (keyup.enter)="sendMessage()"
+                                             type="text">
+                                         </textarea>
+                                    </td>
+                                    <td>
+                                        <button style="background-color:yellowgreen; float: right;height:30px" (click)="sendMessage()">Send</button>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="col-lg-3"></div>

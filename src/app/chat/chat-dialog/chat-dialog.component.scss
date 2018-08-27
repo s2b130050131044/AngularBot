@@ -1,0 +1,82 @@
+.message {
+   border-radius: 10px;
+    margin: 0 15px 10px;
+    padding: 15px 5px;
+    position: relative;
+    font-weight: bold;
+    
+}
+.videomessage {
+  //  border-radius: 10px;
+    margin: 0 15px 10px;
+   // padding: 15px 20px;
+   // position: relative;
+    font-weight: bold;
+    align-content: left;
+}
+.pdfmessage {
+    //background-color:#0182a1 ;
+    border-radius: 10px;
+    margin: 0 15px 10px;
+  // padding: 15px 20px;
+  // position: relative;
+    font-weight: bold;
+    align-content: left;
+    margin-left: -5px;
+    margin-right:-5px;
+}
+    
+.wordmessage {
+    //background-color:#0182a1 ;
+    border-radius: 10px;
+    margin: 0 15px 10px;
+   //padding: 15px 20px;
+  // position: relative;
+    font-weight: bold;
+    align-content: left;
+    margin-left: -5px;
+    margin-right:-5px;
+  
+}
+.message.to {
+    background-color:#bbd87b ;
+    color: #444;
+    margin-left: 100px;
+    text-align: right;
+    font-weight: bold;
+    
+}
+.fromcontent {
+    //background-color: #0182a1;
+    // border-radius: 10px;
+     font-weight: bold;
+     margin-left: 15px;
+     margin-right: 15px;
+     margin-top: 5px;
+     margin-bottom: 0px;
+     padding: 15px 0px;
+    
+    //color: #363636;
+    //align-content: left;
+   // color:#bbd87b;
+
+}
+.message.from {
+     //background-color: #0182a1;
+    font-weight: bold;
+    color: #363636;
+    align-content: left;
+    color:black;
+
+}
+.message.hiddenClass 
+{   
+    display: none;
+    
+}
+.message.visibilityClass{
+    display:block;
+    width:"560";
+     height:"315";
+     
+}
